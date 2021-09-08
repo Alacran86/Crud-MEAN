@@ -7,10 +7,10 @@ const app = express();
 // BD Connection
 conectarDB();
 
-// Routes
-app.get('/', (req, res) => {
-    res.send('hola');
-})
+app.use(express.json());
+app.use('/api/productos', require('./routes/producto'));
+
+
 
 
 app.listen(4000, () => {
