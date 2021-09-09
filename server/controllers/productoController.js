@@ -18,10 +18,10 @@ exports.crearProducto = async(req, res) => {
 
 }
 
-exports.obtenerProducto = async(req, res) => {
+exports.obtenerProductos = async(req, res) => {
     try {
         const productos = await Producto.find();
-        res.json(productos);
+        res.json(productos)
         
     } catch (error) {
         console.error(error);
@@ -35,7 +35,7 @@ exports.actualizarProducto = async(req, res) => {
         let producto = await Producto.findById(req.params.id);
 
         if(!producto){
-            res.status(404).json({ msg: 'No existe el producto! '});
+            res.status(404).json({ msg: 'No existe el producto! '})
         }
 
         producto.nombre = nombre;
@@ -43,7 +43,7 @@ exports.actualizarProducto = async(req, res) => {
         producto.ubicacion = ubicacion;
         producto.precio = precio;
 
-        producto = await Producto.findOneAndUpdate({ _id: req.params.id }, producto, { new: true });
+        producto = await Producto.findOneAndUpdate({ _id: req.params.id }, producto, { new: true })
         res.json(producto);
         
         
@@ -59,7 +59,7 @@ exports.obtenerProducto = async(req, res) => {
         let producto = await Producto.findById(req.params.id);
 
         if(!producto){
-            res.status(404).json({ msg: 'No existe el producto! '});
+            res.status(404).json({ msg: 'No existe el producto! '})
         }
 
         
@@ -78,10 +78,10 @@ exports.eliminarProducto = async(req, res) => {
         let producto = await Producto.findById(req.params.id);
 
         if(!producto){
-            res.status(404).json({ msg: 'No existe el producto! '});
+            res.status(404).json({ msg: 'No existe el producto! '})
         }
 
-        await Producto.findOneAndRemove({ _id: req.params.id});
+        await Producto.findOneAndRemove({ _id: req.params.id})
         res.json({ msg: 'Producto eliminado correctamente!'});
         
         
