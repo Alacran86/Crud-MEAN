@@ -5,4 +5,6 @@ const productoController = require('../controllers/productoController');
 // api/productos
 router.post('/', productoController.crearProducto);
 
+router.get('/', productoController.obtenerProducto);
+
 module.exports = router;
