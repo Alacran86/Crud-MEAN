@@ -22,8 +22,8 @@
                 <td>{{producto.ubicacion}}</td>
                 <td>{{producto.precio | currency: "ARS"}}</td>
                 <td>
-                  <i class class="fas fa-edit text-primary"></i>
-                  <i (click)="eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
+                  <i [routerLink]= "['/editar-producto', producto._id ]" class="fas fa-edit text-primary"></i>
+                  <i (click)= "eliminarProducto(producto._id)" class="fas fa-trash text-danger"></i>
                 </td>
               </tr>
             </tbody>
